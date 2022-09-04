@@ -1,0 +1,387 @@
+
+
+/*
+----- HEADER CSS -----
+*/
+
+header {
+  background-color: #F1E680;
+  height:150px;
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  grid-template-areas: 
+    "one . three"
+    ". two .";
+  transition: height .6s ease;
+}
+
+.one{
+  grid-area: one;
+  color: rgba(18, 6, 91, 0.76);
+}
+
+.two{
+  grid-area: two;
+  color: #2EB7AF;
+}
+
+.three {
+  grid-area: three;
+  color: #FFA74F;
+}
+
+.header--button {
+  font-family: 'Bebas Neue';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 50px;
+  text-align: center;
+  letter-spacing: 0.075em;
+  background:none;
+  border:none;
+}
+
+
+/*
+----- SECTION CSS -----
+*/
+
+section {
+  position: relative;
+  width:100%;
+  height:600px;
+  font-size:20px;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  transition: height 1s;
+}
+
+
+svg {
+  position: absolute;
+  overflow: visible;
+  width: 200%;
+  height: 10%;
+  bottom:0;
+  left:0;
+  transform: translate(-50%,90%);
+  z-index: 2;
+}
+
+
+svg path {
+  animation: wave 10s linear infinite   forwards ;
+}
+
+h1 {
+  font-family: 'bebas-neue';
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0.065em;
+  color:white;
+  margin-top: 50px;
+  font-size: 1.77em;
+}
+
+h1::first-letter {
+  font-size: 1.4em;
+}
+.ctn1 {
+  background-color:#7BAE37 ;
+}
+
+.ctn2 {
+  background-color:#FFA74F ;
+}
+
+.ctn3 {
+  background-color: #38334B;
+}
+
+#wave path {
+  fill: #7BAE37 ;
+}
+
+
+/*
+----- CARD & SECTION 1 CSS -----
+*/
+
+.card {
+  height:100%;
+  border-radius: 7px;
+  box-shadow: rgba(0, 0, 0, 0.15) 6px 6px 2.6px;
+  backface-visibility: hidden;
+  position:absolute;
+}
+
+.front {
+  width:auto;
+}
+
+.back {
+  background-color:#FCFFED;
+  transform: rotateY(180deg);
+  width:320px;
+  height:100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+.title {
+  width:60%;
+  height:10%;
+  text-align: center;
+  background-color: #FFF845;
+  border-bottom-left-radius: 7px;
+  border-bottom-right-radius: 7px;
+  display: table;
+}
+
+.title h1 {
+  font-size: 23px;
+  font-family: 'sans-serif';
+  color: black;
+  display:table-cell; 
+  vertical-align:middle
+}
+
+.profil--title {
+  height:5%;
+  width:100%;
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 20px;
+  margin-top:20px;
+  color:black;
+  font-size: 15px;
+}
+
+.skills--title {
+  height:5%;
+  width:50%;
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 20px;
+  color:black;
+  font-size: 13px;
+  text-align: center;
+}
+
+
+
+.profil--title img {
+  margin-right: 10px;
+}
+
+.skills--wrapper {
+  width:90%;
+  height:37%;
+  background-color: #FCE051;
+  border-radius: 7px;
+  display:flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+}
+
+
+.logo--wrapper {
+  width:90%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  align-items: center;
+  justify-items: center;
+  height: 30%;
+  margin-top: 5px;
+}
+
+.logo--wrapper img {
+  opacity: 70%;
+  transition: opacity .5s;
+  object-fit: cover;
+  width: 60%;
+}
+.logo--wrapper img:hover {
+  opacity: 100%;
+}
+
+
+.skills--wrapper span{
+  display: flex;
+  align-items: center;
+}
+.rating{
+  width: 60%;
+  justify-content: space-evenly;
+  display: flex;
+}
+.profil--card {
+  display: inline-block;
+  border-radius: 7px;
+  position:relative;
+  transform-style: preserve-3d;
+  height:90%;
+  perspective: 1800px;
+  cursor: pointer;
+}
+
+.profil--wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  height: 80%;
+  width:100%;
+}
+
+.profil--wrapper p {
+  width:50%;
+  font-family: 'JetBrains Mono', sans-serif;
+  font-size: 24px;
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  text-align: center;
+  line-height:  40px;
+  opacity: 0;
+}
+
+
+/*
+BREAKPOINTS for responsivity
+*/
+
+@media only screen and (max-width: 1400px) {
+  .profil--wrapper p {
+    font-size: 15px;
+    line-height:  20px;
+    width: 40%;
+  }
+  .skills--title {
+    font-size:10px;
+  }
+  section {
+    height:450px;
+  }
+  .back {
+    width: 230px;
+  }
+  .logo--wrapper img {
+    width: 50%;
+  }
+  .skills--wrapper img {
+    height:12px;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  header{
+    height: 100px;
+  }
+  .profil--wrapper p {
+    font-size: 7px;
+    line-height:  15px;
+    width: 50%;
+  }
+  .profil--card {
+    height:70%;
+  }
+  .title h1 {
+    font-size: 10px;
+  }
+  .back {
+    width: 100px;
+  }
+  section {
+    height:300px;
+  }
+  .profil--title {
+    font-size:6px;
+    padding-left: 10px;
+    height:5%;
+    margin-top:3px;
+  }
+  .profil--title img {
+    height: 50%;
+    margin-right: 4px;
+  }
+  .logo--wrapper img {
+    width: 35%;
+  }
+
+  .skills--wrapper img {
+    height:5.5px;
+  }
+  .skills--wrapper h3 {
+    font-size:4px;
+    padding-left:10px;
+  }
+  .skills--wrapper {
+    height:80%;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  header{
+    height: 100px;
+  }
+  .profil--wrapper p {
+    font-size: 6px;
+    line-height:  15px;
+    width: 30%;
+  }
+  .profil--card {
+    height:60%;
+  }
+  .back {
+    width: 100px;
+  }
+  section {
+    height:300px;
+  }
+}
+
+
+@keyframes wave {
+  0%{
+      transform: translateX(0%);   
+      d: path("M1001 301V1H876.004H751.004H626.004H501.004H376.004H251.004H126.004H1.00391V301C58.5 285.5 73.5078 199.5 126.004 123C178.5 46.5 205 135 251.004 198C297.008 261 345.008 232 376.004 196C407 160 444 102.5 518 109.5C592 116.5 604 210.971 640.5 226C677 241.029 696 123 762 123C828 123 839 198 876.004 253.5C913.008 309 943.5 313 1001 301Z M2001 301V1H1876H1751H1626H1501H1376H1251H1126H1001V301C1058.5 285.5 1073.5 199.5 1126 123C1178.5 46.5 1205 135 1251 198C1297 261 1345 232 1376 196C1407 160 1444 102.5 1518 109.5C1592 116.5 1604 210.971 1640.5 226C1677 241.029 1696 123 1762 123C1828 123 1839 198 1876 253.5C1913 309 1943.5 313 2001 301Z")
+  }   
+  10%{
+      d: path("M999.996 300V0H875H750H625H500H375H250H125H0V300C57.4961 284.5 72.5039 236.5 125 160C177.496 83.5 203.996 98 250 161C296.004 224 344.004 202 375 166C405.996 130 442.996 81.5 516.996 88.5C590.996 95.5 602.996 225.971 639.496 241C675.996 256.029 694.996 150 760.996 150C826.996 150 837.996 169 875 224.5C912.004 280 942.496 312 999.996 300ZM2000 300V0H1875H1750H1625H1500H1375H1250H1125H999.996V300C1057.5 284.5 1072.5 236.5 1125 160C1177.5 83.5 1204 98 1250 161C1296 224 1344 202 1375 166C1406 130 1443 81.5 1517 88.5C1591 95.5 1603 225.971 1639.5 241C1676 256.029 1695 150 1761 150C1827 150 1838 169 1875 224.5C1912 280 1942.5 312 2000 300Z")
+  }
+  20%{
+      d: path("M999.996 300V0H875H750H625H500H375H250H125H0V300C57.4961 284.5 72.5039 264.5 125 188C177.496 111.5 203.996 129 250 192C296.004 255 344.004 169 375 133C405.996 97 442.996 61.5 516.996 68.5C590.996 75.5 602.996 163.971 639.496 179C675.996 194.029 694.996 107 760.996 107C826.996 107 837.996 137 875 192.5C912.004 248 942.496 312 999.996 300ZM2000 300V0H1875H1750H1625H1500H1375H1250H1125H999.996V300C1057.5 284.5 1072.5 263.5 1125 187C1177.5 110.5 1204 129 1250 192C1296 255 1344 169 1375 133C1406 97 1443 61.5 1517 68.5C1591 75.5 1603 163.971 1639.5 179C1676 194.029 1695 107 1761 107C1827 107 1838 137 1875 192.5C1912 248 1942.5 312 2000 300Z")
+  }
+  30%{
+      d: path("M1001 301V1H876.004H751.004H626.004H501.004H376.004H251.004H126.004H1.00391V301C58.5 285.5 73.5078 199.5 126.004 123C178.5 46.5 205 135 251.004 198C297.008 261 345.008 232 376.004 196C407 160 444 102.5 518 109.5C592 116.5 604 210.971 640.5 226C677 241.029 696 123 762 123C828 123 839 198 876.004 253.5C913.008 309 943.5 313 1001 301Z M2001 301V1H1876H1751H1626H1501H1376H1251H1126H1001V301C1058.5 285.5 1073.5 199.5 1126 123C1178.5 46.5 1205 135 1251 198C1297 261 1345 232 1376 196C1407 160 1444 102.5 1518 109.5C1592 116.5 1604 210.971 1640.5 226C1677 241.029 1696 123 1762 123C1828 123 1839 198 1876 253.5C1913 309 1943.5 313 2001 301Z")
+  }
+  40%{
+      d: path("M999.996 300V0H875H750H625H500H375H250H125H0V300C57.4961 284.5 72.5039 264.5 125 188C177.496 111.5 203.996 129 250 192C296.004 255 344.004 169 375 133C405.996 97 442.996 61.5 516.996 68.5C590.996 75.5 602.996 163.971 639.496 179C675.996 194.029 694.996 107 760.996 107C826.996 107 837.996 137 875 192.5C912.004 248 942.496 312 999.996 300ZM2000 300V0H1875H1750H1625H1500H1375H1250H1125H999.996V300C1057.5 284.5 1072.5 263.5 1125 187C1177.5 110.5 1204 129 1250 192C1296 255 1344 169 1375 133C1406 97 1443 61.5 1517 68.5C1591 75.5 1603 163.971 1639.5 179C1676 194.029 1695 107 1761 107C1827 107 1838 137 1875 192.5C1912 248 1942.5 312 2000 300Z")
+  }
+  50%{
+      d: path("M999.996 300V0H875H750H625H500H375H250H125H0V300C57.4961 284.5 72.5039 236.5 125 160C177.496 83.5 203.996 98 250 161C296.004 224 344.004 202 375 166C405.996 130 442.996 81.5 516.996 88.5C590.996 95.5 602.996 225.971 639.496 241C675.996 256.029 694.996 150 760.996 150C826.996 150 837.996 169 875 224.5C912.004 280 942.496 312 999.996 300ZM2000 300V0H1875H1750H1625H1500H1375H1250H1125H999.996V300C1057.5 284.5 1072.5 236.5 1125 160C1177.5 83.5 1204 98 1250 161C1296 224 1344 202 1375 166C1406 130 1443 81.5 1517 88.5C1591 95.5 1603 225.971 1639.5 241C1676 256.029 1695 150 1761 150C1827 150 1838 169 1875 224.5C1912 280 1942.5 312 2000 300Z")
+  }
+  60%{
+      d: path("M1001 301V1H876.004H751.004H626.004H501.004H376.004H251.004H126.004H1.00391V301C58.5 285.5 73.5078 199.5 126.004 123C178.5 46.5 205 135 251.004 198C297.008 261 345.008 232 376.004 196C407 160 444 102.5 518 109.5C592 116.5 604 210.971 640.5 226C677 241.029 696 123 762 123C828 123 839 198 876.004 253.5C913.008 309 943.5 313 1001 301Z M2001 301V1H1876H1751H1626H1501H1376H1251H1126H1001V301C1058.5 285.5 1073.5 199.5 1126 123C1178.5 46.5 1205 135 1251 198C1297 261 1345 232 1376 196C1407 160 1444 102.5 1518 109.5C1592 116.5 1604 210.971 1640.5 226C1677 241.029 1696 123 1762 123C1828 123 1839 198 1876 253.5C1913 309 1943.5 313 2001 301Z")
+  }
+  70%{
+      d: path("M999.996 300V0H875H750H625H500H375H250H125H0V300C57.4961 284.5 72.5039 236.5 125 160C177.496 83.5 203.996 98 250 161C296.004 224 344.004 202 375 166C405.996 130 442.996 81.5 516.996 88.5C590.996 95.5 602.996 225.971 639.496 241C675.996 256.029 694.996 150 760.996 150C826.996 150 837.996 169 875 224.5C912.004 280 942.496 312 999.996 300ZM2000 300V0H1875H1750H1625H1500H1375H1250H1125H999.996V300C1057.5 284.5 1072.5 236.5 1125 160C1177.5 83.5 1204 98 1250 161C1296 224 1344 202 1375 166C1406 130 1443 81.5 1517 88.5C1591 95.5 1603 225.971 1639.5 241C1676 256.029 1695 150 1761 150C1827 150 1838 169 1875 224.5C1912 280 1942.5 312 2000 300Z")
+  }
+  80%{
+      d: path("M999.996 300V0H875H750H625H500H375H250H125H0V300C57.4961 284.5 72.5039 264.5 125 188C177.496 111.5 203.996 129 250 192C296.004 255 344.004 169 375 133C405.996 97 442.996 61.5 516.996 68.5C590.996 75.5 602.996 163.971 639.496 179C675.996 194.029 694.996 107 760.996 107C826.996 107 837.996 137 875 192.5C912.004 248 942.496 312 999.996 300ZM2000 300V0H1875H1750H1625H1500H1375H1250H1125H999.996V300C1057.5 284.5 1072.5 263.5 1125 187C1177.5 110.5 1204 129 1250 192C1296 255 1344 169 1375 133C1406 97 1443 61.5 1517 68.5C1591 75.5 1603 163.971 1639.5 179C1676 194.029 1695 107 1761 107C1827 107 1838 137 1875 192.5C1912 248 1942.5 312 2000 300Z")
+  }
+  90%{
+      d: path("M999.996 300V0H875H750H625H500H375H250H125H0V300C57.4961 284.5 72.5039 236.5 125 160C177.496 83.5 203.996 98 250 161C296.004 224 344.004 202 375 166C405.996 130 442.996 81.5 516.996 88.5C590.996 95.5 602.996 225.971 639.496 241C675.996 256.029 694.996 150 760.996 150C826.996 150 837.996 169 875 224.5C912.004 280 942.496 312 999.996 300ZM2000 300V0H1875H1750H1625H1500H1375H1250H1125H999.996V300C1057.5 284.5 1072.5 236.5 1125 160C1177.5 83.5 1204 98 1250 161C1296 224 1344 202 1375 166C1406 130 1443 81.5 1517 88.5C1591 95.5 1603 225.971 1639.5 241C1676 256.029 1695 150 1761 150C1827 150 1838 169 1875 224.5C1912 280 1942.5 312 2000 300Z")
+  }
+  100%{
+      transform: translateX(50%);
+      d: path("M1001 301V1H876.004H751.004H626.004H501.004H376.004H251.004H126.004H1.00391V301C58.5 285.5 73.5078 199.5 126.004 123C178.5 46.5 205 135 251.004 198C297.008 261 345.008 232 376.004 196C407 160 444 102.5 518 109.5C592 116.5 604 210.971 640.5 226C677 241.029 696 123 762 123C828 123 839 198 876.004 253.5C913.008 309 943.5 313 1001 301Z M2001 301V1H1876H1751H1626H1501H1376H1251H1126H1001V301C1058.5 285.5 1073.5 199.5 1126 123C1178.5 46.5 1205 135 1251 198C1297 261 1345 232 1376 196C1407 160 1444 102.5 1518 109.5C1592 116.5 1604 210.971 1640.5 226C1677 241.029 1696 123 1762 123C1828 123 1839 198 1876 253.5C1913 309 1943.5 313 2001 301Z")
+  }
+}
