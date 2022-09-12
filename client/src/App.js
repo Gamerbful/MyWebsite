@@ -13,15 +13,16 @@ import initiateAnimation from './utils/animation';
 
 
 function App() {
-  useEffect( () => {
-    initiateAnimation();
-  });
+
   
   const [data,setData]=useState([]);
 
   useEffect( ()=> {
     async function loadData(){
-      setData([await getData('descri'),await getData('ratings'), await getData('projets')]);
+      const projects = await getData('projets');
+      setData([await getData('descri'),await getData('ratings'), projects])
+      initiateAnimation(projects)
+      
     }
     loadData();
   }, [])
@@ -32,7 +33,7 @@ function App() {
     <Profil description={data[0]} ratings={data[1]}></Profil>
   </Content>
   <Content title="My Projects" class="ctn2" svg={getSvgBorder(1)}>
-    <Caroussel projets={data[2]}/>
+    <Caroussel projects={data[2]}/>
   </Content>
   <Content title="Contact" class="ctn3"/>
   </>

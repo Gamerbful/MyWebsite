@@ -2,18 +2,22 @@
 import React from "react";
 
 function Profil(props) {
+    let key = 0;
     function ratingsImg(idx){
         if(!props.ratings) return;
         const filledStarsNumber = props.ratings[idx];
         const unfilledStarsNumber = 5 - props.ratings[idx];
-        const filledMoon = <img alt="rating" src="moon.svg"></img>;
-        const unfilledMoon = <img alt="rating" src="moon2.svg"></img>;
         let res = [];
+        
         for(let i=0; i<filledStarsNumber; i++){
-            res.push(filledMoon);
+            key++;
+            res.push(<img key={key.toString()} alt="rating" src="moon.svg"></img>);
+            console.log("filled : " +key);
         }
         for(let i=0; i<unfilledStarsNumber; i++){
-            res.push(unfilledMoon);
+            res.push(<img key={key} alt="rating" src="moon2.svg"></img>);
+            key++;
+            console.log("unfilled :" + key)
         }
         return res;
     }
