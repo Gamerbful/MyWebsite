@@ -4,8 +4,8 @@ function Header() {
     return(
         <header>
             <button className="header--button one">Contact</button>
-            <button className="header--button two">Sign in/up</button>
-            <button className="header--button three">Projects</button>
+            <button className="header--button two">Profil</button>
+            <button className="header--button three">Projets</button>
         </header>
         
     )

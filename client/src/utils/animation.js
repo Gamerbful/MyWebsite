@@ -106,7 +106,7 @@ function caroussel(data) {
     var idx = {leftIdx: n - 1, rightIdx: 5}
     const rightArrow = document.querySelector('.right');
     const leftArrow = document.querySelector('.left');
-    const timeline = gsap.timeline( {defaults: {duration:.325 }})
+    const timeline = gsap.timeline( {defaults: {duration:.27 }})
 
     leftArrow.addEventListener('click', (e) => {
         if (timeline.isActive()) return;
@@ -135,11 +135,18 @@ function scrollTo() {
         gsap.to(window, {duration: .9, delay:.1, scrollTo:contactSection})
     })
 
-    const projectButton = document.querySelector('.two');
+    const projectButton = document.querySelector('.three');
     const projectSection = document.querySelector('.ctn2')
     projectButton.addEventListener('click', (e) => {
 
         gsap.to(window, {duration: .9, delay:.1, scrollTo:projectSection})
+    })
+
+    const profilButton = document.querySelector('.two');
+    const profilSection = document.querySelector('.ctn1')
+    profilButton.addEventListener('click', (e) => {
+
+        gsap.to(window, {duration: .9, delay:.1, scrollTo:profilSection})
     })
 }
 function flipProfil() {
@@ -178,14 +185,14 @@ function parallaxProfil() {
         mouse.x = e.x;
         mouse.y = e.y;
     }
-    const speed = 0.7;
+    const speed = 0.2;
     const xSet = gsap.quickSetter(element, "x", "px");
     const ySet = gsap.quickSetter(element, "y", "px");
     root.onmousemove = mouseMoveHandler;
     gsap.ticker.add(() => {
         const dt = 1.0 - Math.pow(1.0 - speed, 60);
         
-        xSet(-0.01 * mouse.x * dt)
+        xSet(-0.02 * mouse.x * dt)
         ySet(-0.03 * mouse.y * dt)
       });
 }
@@ -207,12 +214,35 @@ function appear() {
     observer.observe(p);
   
 }
+
+
+function headerOnScroll() {
+    var lastScrollTop = 0;
+    // element should be replaced with the actual target element on which you have applied scroll, use window in case of no target element.
+    window.addEventListener("scroll", function(){ // or window.addEventListener("scroll"....
+        const fixedHeader = document.querySelector('header');
+        var st = window.pageYOffset || document.documentElement.scrollTop; // Credits: "https://github.com/qeremy/so/blob/master/so.dom.js#L426"
+        if (st > lastScrollTop){
+            gsap.to(fixedHeader, {y: '-100%'});
+        // downscroll code
+        } else {
+            gsap.to(fixedHeader, {y: '0%'});
+        // upscroll code
+        }
+        lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
+    }, false);
+}
+
+
+
+
 function initiateAnimation(data) {
     appear();
     parallaxProfil();
     flipProfil();
     scrollTo();
     caroussel(data);
+    headerOnScroll();
 }
 
 export default initiateAnimation;

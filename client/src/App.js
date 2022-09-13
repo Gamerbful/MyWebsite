@@ -5,6 +5,7 @@ import Header from './components/Header';
 import Content from './components/Content';
 import Profil from './components/Profil';
 import Caroussel from './components/Caroussel';
+import Contact from './components/Contact';
 
 import getSvgBorder from './utils/bottomBorder';
 import getData from './utils/getData';
@@ -26,6 +27,8 @@ function App() {
     }
     loadData();
   }, [])
+
+  
   return (
   <>
   <Header/>
@@ -35,7 +38,9 @@ function App() {
   <Content title="My Projects" class="ctn2" svg={getSvgBorder(1)}>
     <Caroussel projects={data[2]}/>
   </Content>
-  <Content title="Contact" class="ctn3"/>
+  <Content title="Contact" class="ctn3">
+    <Contact />
+  </Content>
   </>
   )
 }
