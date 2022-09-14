@@ -449,6 +449,7 @@ h1::first-letter {
   max-height: 60%;
   object-fit: contain;
   padding: 3px;
+  opacity:0;
 }
 /*
 BREAKPOINTS for responsivity

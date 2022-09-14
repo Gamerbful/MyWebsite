@@ -1,4 +1,10 @@
 import React, { useEffect, useState }  from 'react';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link
+} from "react-router-dom";
 
 import './App.css';
 import Header from './components/Header';
@@ -6,6 +12,7 @@ import Content from './components/Content';
 import Profil from './components/Profil';
 import Caroussel from './components/Caroussel';
 import Contact from './components/Contact';
+import Main from './pages/Main';
 
 import getSvgBorder from './utils/bottomBorder';
 import getData from './utils/getData';
@@ -30,18 +37,14 @@ function App() {
 
   
   return (
-  <>
-  <Header/>
-  <Content title="About Me" class="ctn1" svg={getSvgBorder(0)}>
-    <Profil description={data[0]} ratings={data[1]}></Profil>
-  </Content>
-  <Content title="My Projects" class="ctn2" svg={getSvgBorder(1)}>
-    <Caroussel projects={data[2]}/>
-  </Content>
-  <Content title="Contact" class="ctn3">
-    <Contact />
-  </Content>
-  </>
+    <Router>
+      <Routes>
+        <Route path='projets'>
+        </Route>
+        <Route path='*' element={<Main getSvgBorder={getSvgBorder} data={data}/>}>
+        </Route>
+      </Routes>
+    </Router>
   )
 }
 

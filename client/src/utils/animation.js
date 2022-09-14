@@ -199,10 +199,18 @@ function parallaxProfil() {
 
 function appear() {
     const p = document.querySelector('p');
+    const logoWrapper = document.querySelector('.networks--logo');
     const observer = new IntersectionObserver( entries => {
         entries.forEach( entry => {
             if (entry.isIntersecting) {
-                gsap.fromTo("p", {opacity: 0, x: '-10%'}, {duration: 3, opacity: 1.5, x:'0%'});
+                const target = entry.target;
+                console.log(target.className);
+                if ( target.nodeName === "P" ){
+                    gsap.fromTo("p", {opacity: 0, x: '-10%'}, {duration: 3, opacity: 1, x:'0%'});
+                }
+                if ( target.className === "networks--logo" ){
+                    gsap.fromTo(target.childNodes, {opacity: 0, x: '-10%' ,rotateZ:'-90deg'}, {duration:  1.5, stagger:0.5, opacity: 1, x:'0%', rotateZ:'0deg'});
+                }
                 observer.unobserve(entry.target);
             }
         })
@@ -212,6 +220,7 @@ function appear() {
         threshold: 0.6
     })
     observer.observe(p);
+    observer.observe(logoWrapper);
   
 }
 
