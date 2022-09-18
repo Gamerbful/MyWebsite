@@ -1,4 +1,4 @@
-import React, { useEffect, useState }  from 'react';
+import React, { useEffect, useState, useLayoutEffect }  from 'react';
 import {
   BrowserRouter as Router,
   Routes,
@@ -7,17 +7,12 @@ import {
 } from "react-router-dom";
 
 import './App.css';
-import Header from './components/Header';
-import Content from './components/Content';
-import Profil from './components/Profil';
-import Caroussel from './components/Caroussel';
-import Contact from './components/Contact';
 import Main from './pages/Main';
 
 import getSvgBorder from './utils/bottomBorder';
 import getData from './utils/getData';
 import initiateAnimation from './utils/animation';
-
+import lazyLoading from './utils/lazyLoading';
 
 
 function App() {
@@ -25,17 +20,22 @@ function App() {
   
   const [data,setData]=useState([]);
 
-  useEffect( ()=> {
+  useLayoutEffect( ()=> {
     async function loadData(){
       const projects = await getData('projets');
-      setData([await getData('descri'),await getData('ratings'), projects])
-      initiateAnimation(projects)
-      
+      setData([await getData('descri'),await getData('ratings'), projects]);
+
     }
     loadData();
   }, [])
 
-  
+  useEffect( ()=> {
+    if ( data.length > 0 ){
+      initiateAnimation(data[2]);
+      lazyLoading();
+    }
+  },[data])
+
   return (
     <Router>
       <Routes>

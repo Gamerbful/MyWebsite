@@ -3,6 +3,7 @@
 
 function Caroussel(props) {
     function loadProjects(){
+        console.log(props.projects);
         if (!props.projects) return;
         return props.projects.slice(0,5).map( (project, idx) => {
             var c = "project--wrapper";
@@ -53,7 +54,7 @@ function Caroussel(props) {
                 rotation = 40;
             }
             return (<div data-translate="0" data-rotate={`${rotation}`} style={style} className={c}>
-            <img  key={idx} src={project.img}></img>
+            <img className="lazy" data-src={project.img}></img>
             <h5>{project.descri}</h5>
             </div>
             )

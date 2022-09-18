@@ -204,7 +204,6 @@ function appear() {
         entries.forEach( entry => {
             if (entry.isIntersecting) {
                 const target = entry.target;
-                console.log(target.className);
                 if ( target.nodeName === "P" ){
                     gsap.fromTo("p", {opacity: 0, x: '-10%'}, {duration: 3, opacity: 1, x:'0%'});
                 }

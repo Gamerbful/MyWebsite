@@ -11,13 +11,11 @@ function Profil(props) {
         
         for(let i=0; i<filledStarsNumber; i++){
             key++;
-            res.push(<img key={key.toString()} alt="rating" src="moon.svg"></img>);
-            console.log("filled : " +key);
+            res.push(<img  alt="rating" src="moon.svg"></img>);
         }
         for(let i=0; i<unfilledStarsNumber; i++){
-            res.push(<img key={key} alt="rating" src="moon2.svg"></img>);
+            res.push(<img  alt="rating" src="moon2.svg"></img>);
             key++;
-            console.log("unfilled :" + key)
         }
         return res;
     }
