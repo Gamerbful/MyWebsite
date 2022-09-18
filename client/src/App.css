@@ -314,13 +314,14 @@ h1::first-letter {
   
 }
 .lazy {
-  animation: load .9s infinite alternate linear;
+  animation: load .7s infinite alternate linear;
+  background-color: rgb(32, 30, 30);
 }
 
 @keyframes load {
   0%{
     transform: scale(100%);
-    opacity: 0.7;
+    background-color: rgb(49, 48, 48);
   }
   100% {
     transform: scale(105%);

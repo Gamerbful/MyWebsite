@@ -1,17 +1,20 @@
 import { FastAverageColor } from 'fast-average-color';
 
 function lazyLoading() {
-    console.log("yeah");
     const lazyImg = document.querySelectorAll('.lazy');
     const observer = new IntersectionObserver(entries => {
         entries.forEach( entry => {
             if ( entry.isIntersecting){
                 const img = entry.target;
-                img.src = img.getAttribute('data-src');
-                img.onload = () => {
+                const newImg = new Image();
+                newImg.src = img.getAttribute('data-src');
+                newImg.onload = function()  {
+                    img.src = newImg.src;
                     observer.unobserve(img);
+                    img.classList.remove('lazy');
+                    ;
                 }
-                img.classList.remove('lazy');
+                
                 
             }
         })
