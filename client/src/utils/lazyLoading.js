@@ -8,8 +8,11 @@ function lazyLoading() {
             if ( entry.isIntersecting){
                 const img = entry.target;
                 img.src = img.getAttribute('data-src');
+                img.onload = () => {
+                    observer.unobserve(img);
+                }
                 img.classList.remove('lazy');
-                observer.unobserve(img);
+                
             }
         })
     });
