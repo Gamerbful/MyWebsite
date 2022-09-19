@@ -22,7 +22,7 @@ function Profil(props) {
     return (
         <div className="profil--wrapper">
             <div className="profil--card">
-            <img className="card front lazy" alt='developpeur' src='bryan.jpg'></img>
+            <img className="card front lazy" alt='developpeur' data-src='bryan.jpg'></img>
             <div className="card back">
                 <div className="title">
                     <h1>Profil Card</h1>  
