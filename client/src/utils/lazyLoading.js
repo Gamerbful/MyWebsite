@@ -1,4 +1,4 @@
-import { FastAverageColor } from 'fast-average-color';
+
 
 function lazyLoading() {
     const lazyImg = document.querySelectorAll('.lazy');

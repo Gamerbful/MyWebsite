@@ -12,14 +12,13 @@
 
 header {
   background-color: #F1E680;
-  height:7%;
+  height:50px;
   width:100%;
   display:grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: auto;
   grid-template-areas: 
     "one two three";
-  transition: height .6s ease;
   position: fixed;
   top:0px;
   right:0px;
@@ -290,7 +289,6 @@ h1::first-letter {
   text-align: center;
   width:30%;
   height:50%;
-  transition: flex 250ms ease;
   position:absolute;
   transform-style: preserve-3d;
   justify-content: space-around;
@@ -298,7 +296,7 @@ h1::first-letter {
 
 .project--wrapper h5{
   width:80%;
-  height:20%;
+  height:35%;
   margin:auto;
   font-size: 0.9vw;
   color: black;
@@ -461,6 +459,8 @@ h1::first-letter {
   margin-top: 5%;
 }
 
+
+
 .networks--logo img{
   max-width: 60%;
   max-height: 60%;
@@ -468,6 +468,8 @@ h1::first-letter {
   padding: 3px;
   opacity:0;
 }
+
+
 /*
 BREAKPOINTS for responsivity
 */

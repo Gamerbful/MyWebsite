@@ -1,5 +1,5 @@
 {
     "descri": "Je suis un passionné des domaines de l'informatique, j'aime surtout son côté créatif et la possibilité de gérer des données. J'adore découvrir de nouveaux langages / de nouvelles façons de travailler. Sociable et dynamique, j'ai hâte de trouver une entreprise dans le web pour lui apporter mon soutien",
     "ratings": [4,3,4,4,5],
-    "projets": [{ "descri": "lorem ipsum", "img": "projets/test3.png"},{ "descri": "lorem ipsum", "img": "projets/test3.png"},{ "descri": "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsumlorem ipsum lorem ipsum ", "img": "projets/test2.jpg"},{ "descri": "lorem ipsum", "img": "projets/test.jpg"},{ "descri": "lorem ipsum", "img": "projets/yeah.png"},{ "descri": "lorem ipsum", "img": "projets/yeah.png"}]
+    "projets": [{ "descri": "lorem ipsum", "img": "projets/test3.png"},{ "descri": "lorem ipsum", "img": "projets/test3.png"},{ "descri": "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsumlorem ipsum lorem ipsum lorem", "img": "projets/test2.jpg"},{ "descri": "lorem ipsum", "img": "projets/test.jpg"},{ "descri": "lorem ipsum", "img": "projets/yeah.png"},{ "descri": "lorem ipsum", "img": "projets/yeah.png"}]
 }

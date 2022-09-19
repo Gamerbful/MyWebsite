@@ -72,14 +72,25 @@ function refreshIdx(direction, idx,n) {
 
 }
 
+function clickableElement(id) {
+    window.location.href = '/projets/'+"1";
+}
+
+function hoverableElement(project, bool) {
+    const hover = gsap.to(project, {scale: 1.19, duration: 0.2 ,cursor:'pointer', paused:true, ease: "power1.inOut"});
+    if ( bool ) hover.play();
+    hover.reverse();
+}
 function carousselSwiper(projects, timeline, direction, idx, n, data){
+    var clickableProject = null;
     if ( !direction ) {
         timeline
         .to(projects[0], { opacity:0.7, translateX:`${projects[0].getAttribute('data-translate')}%` ,rotateY:`${projects[0].getAttribute('data-rotate')}`})
         .to(projects[1], { scale:1.4, translateX:`${projects[1].getAttribute('data-translate')}%`,rotateY:`${projects[1].getAttribute('data-rotate')}`, opacity: 1,zIndex:2},'<')
         .to(projects[2], {scale:1,translateX:`${projects[2].getAttribute('data-translate')}%`,rotateY:`${projects[2].getAttribute('data-rotate')}`, opacity: 0.7,zIndex:1},'<' )
         .to(projects[3], {scale: 0.7, translateX:`${projects[3].getAttribute('data-translate')}%`,rotateY:`${projects[3].getAttribute('data-rotate')}`, opacity: 0},'<' )
-        .to(projects[4], {translateX:`67%`, opacity: 0,rotateY:`${projects[4].getAttribute('data-rotate')}` },'<' )
+        .to(projects[4], {translateX:`67%`, opacity: 0,rotateY:`${projects[4].getAttribute('data-rotate')}` },'<' );
+        clickableProject = projects[1];
     }
     else {
         timeline
@@ -87,7 +98,8 @@ function carousselSwiper(projects, timeline, direction, idx, n, data){
         .to(projects[3], { scale:1.4, translateX:`${projects[3].getAttribute('data-translate')}%`, opacity: 1,zIndex:2,rotateY:`${projects[3].getAttribute('data-rotate')}`},'<')
         .to(projects[2], {scale:1,translateX:`${projects[2].getAttribute('data-translate')}%`, opacity: 0.7,zIndex:1,rotateY:`${projects[2].getAttribute('data-rotate')}`},'<' )
         .to(projects[1], {scale: 0.7, translateX:`${projects[1].getAttribute('data-translate')}%`, opacity: 0,rotateY:`${projects[1].getAttribute('data-rotate')}`},'<' )
-        .to(projects[0], {translateX:`-67%`, opacity: 0,rotateY:`${projects[0].getAttribute('data-rotate')}`},'<' )
+        .to(projects[0], {translateX:`-67%`, opacity: 0,rotateY:`${projects[0].getAttribute('data-rotate')}`},'<' );
+        clickableProject = projects[3];
     }
 
     timeline.eventCallback('onComplete',() => {
@@ -96,9 +108,17 @@ function carousselSwiper(projects, timeline, direction, idx, n, data){
         var nextIdx = 0;
         if(!direction) nextIdx = idx.leftIdx;
         else nextIdx = idx.rightIdx;
-        
+        projects[2].removeEventListener("click", clickableElement);
+        clickableProject.addEventListener('click', clickableElement ) 
+        const hover = gsap.to(clickableProject, {scale: 1.19, duration: 0.2 ,cursor:'pointer', paused:true, ease: "power1.inOut"});
+        projects[2].removeEventListener("mouseenter", hoverableElement(clickableProject,true));
+        projects[2].removeEventListener("mouseleave", hoverableElement(clickableProject,false));
+        clickableProject.addEventListener("mouseenter", hoverableElement(clickableProject,true));
+        clickableProject.addEventListener("mouseleave", hoverableElement(clickableProject,false));
         removeLastadd(aera,projects,data[nextIdx],direction);
+        
     });
+    
 }
 
 function caroussel(data) {
@@ -107,6 +127,7 @@ function caroussel(data) {
     const rightArrow = document.querySelector('.right');
     const leftArrow = document.querySelector('.left');
     const timeline = gsap.timeline( {defaults: {duration:.27 }})
+    document.querySelectorAll('.project--wrapper')[2].addEventListener('click', clickableElement)
 
     leftArrow.addEventListener('click', (e) => {
         if (timeline.isActive()) return;
@@ -198,8 +219,16 @@ function parallaxProfil() {
 }
 
 function appear() {
+
+
     const p = document.querySelector('p');
     const logoWrapper = document.querySelector('.networks--logo');
+    logoWrapper.childNodes.forEach( logo => {
+        const hover = gsap.to(logo, {scale: 1.19, duration: 0.2 ,cursor:'pointer', paused:true, ease: "power1.inOut"});
+        logo.addEventListener("mouseenter", () => hover.play());
+        logo.addEventListener("mouseleave", () => hover.reverse());
+    });
+
     const observer = new IntersectionObserver( entries => {
         entries.forEach( entry => {
             if (entry.isIntersecting) {

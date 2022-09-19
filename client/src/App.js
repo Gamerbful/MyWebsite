@@ -13,6 +13,7 @@ import getSvgBorder from './utils/bottomBorder';
 import getData from './utils/getData';
 import initiateAnimation from './utils/animation';
 import lazyLoading from './utils/lazyLoading';
+import attributeRedirect from './utils/redirect';
 
 
 function App() {
@@ -33,13 +34,14 @@ function App() {
     if ( data.length > 0 ){
       initiateAnimation(data[2]);
       lazyLoading();
+      attributeRedirect();
     }
   },[data])
 
   return (
     <Router>
       <Routes>
-        <Route path='projets'>
+        <Route path='projets/:id'>
         </Route>
         <Route path='*' element={<Main getSvgBorder={getSvgBorder} data={data}/>}>
         </Route>

@@ -17,10 +17,10 @@ function Contact() {
         <div className="contact--networks">
             <img id="ligne" src='logo/line.svg' alt='ligne blanche'></img>
             <div className="networks--logo">
-                <img src='logo/instagram.svg' alt='instagram'></img>
-                <img src='logo/linkedin.svg' alt='linkedin'></img>
-                <img src='logo/github.svg' alt='github'></img>
-                <img src='logo/twitch.svg' alt='twitch'></img>
+                <img className='nl' src='logo/instagram.svg' alt='instagram'></img>
+                <img className='nl' src='logo/linkedin.svg' alt='linkedin'></img>
+                <img className='nl' src='logo/github.svg' alt='github'></img>
+                <img className='nl' src='logo/twitch.svg' alt='twitch'></img>
             </div>
         </div>
 
