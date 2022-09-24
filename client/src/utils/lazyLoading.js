@@ -19,7 +19,6 @@ function lazyLoading() {
             }
         })
     });
-    console.log(lazyImg);
     lazyImg.forEach( img => {
         observer.observe(img);
         img.style.backgroundColor = "#222222";

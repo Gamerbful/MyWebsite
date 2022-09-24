@@ -1,5 +1,5 @@
 async function getData(key) {
-    let data = await fetch('data.json', {
+    let data = await fetch('/data.json', {
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json'

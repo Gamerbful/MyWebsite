@@ -8,12 +8,11 @@ import {
 
 import './App.css';
 import Main from './pages/Main';
+import Projets from './pages/Projets';
 
 import getSvgBorder from './utils/bottomBorder';
 import getData from './utils/getData';
-import initiateAnimation from './utils/animation';
 import lazyLoading from './utils/lazyLoading';
-import attributeRedirect from './utils/redirect';
 
 
 function App() {
@@ -30,23 +29,51 @@ function App() {
     loadData();
   }, [])
 
-  useEffect( ()=> {
-    if ( data.length > 0 ){
-      initiateAnimation(data[2]);
-      lazyLoading();
-      attributeRedirect();
-    }
-  },[data])
+  useEffect( () => {
+    lazyLoading();
+  }, [data]);
+
+  // Declare your routes
+const routes = [
+  {
+    key : 'projets',
+    path : '/projets/:id',
+    content : 'Project',
+    Component: Projets,
+    exact : true
+  },
+  {
+  key : 'main',
+  path : '*',
+  content : 'Homepage',
+  Component: Main,
+  exact : true
+}]
+
 
   return (
+    <>
+
     <Router>
       <Routes>
-        <Route path='projets/:id'>
+        {/* <Route path='projets/:id' exact="true">
         </Route>
         <Route path='*' element={<Main getSvgBorder={getSvgBorder} data={data}/>}>
-        </Route>
+        </Route> */}
+      {routes.map(({key, path, content, Component }) => {
+        return(
+          <Route key={key} path={path} element={
+            <div className='page'>
+              {content === 'Homepage' ? <Component getSvgBorder={getSvgBorder} data={data}/> : <Component data={data[2]}/>}
+            </div>
+          }>
+          </Route>
+        )
+
+      })}
       </Routes>
     </Router>
+    </>
   )
 }
 

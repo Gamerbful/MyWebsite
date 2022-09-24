@@ -3,6 +3,8 @@ import {
     gsap
 } from "gsap";
 
+import { Link} from 'react-router-dom';
+
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 
 gsap.registerPlugin(ScrollToPlugin);
@@ -72,14 +74,57 @@ function refreshIdx(direction, idx,n) {
 
 }
 
-function clickableElement(id) {
-    window.location.href = '/projets/'+"1";
+function clickableElement(e) {
+    const currentIdx = e.currentTarget.myParam.currentIdx;
+    const header = document.querySelector('header');
+    const ctn1 = document.querySelector('.ctn1');
+    const ctn3 = document.querySelector('.ctn3');
+    const ctn2 = document.querySelector('.ctn2');
+    const page = document.querySelector('body');
+    const caroussel = document.querySelector('.caroussel');
+    const timeline = gsap.timeline({defaults: {duration:0.5}});
+    timeline
+    .to([ctn1.childNodes,ctn3.childNodes, header], {opacity:0},"<")
+    .to([caroussel, ctn2.firstChild, ctn2.lastChild], {opacity:0})
+    .to([ctn1,ctn3], {backgroundColor:"#FFA74F"},"<")
+    
+    timeline.eventCallback('onComplete',() => {
+        window.location.href = `/projets/${currentIdx}`;
+    });
 }
 
-function hoverableElement(project, bool) {
-    const hover = gsap.to(project, {scale: 1.19, duration: 0.2 ,cursor:'pointer', paused:true, ease: "power1.inOut"});
-    if ( bool ) hover.play();
-    hover.reverse();
+function mouseEnterElement(e) {
+    gsap.to(e.target, {scale: 1.8, duration: 0.1 ,cursor:'pointer', ease: "power1.inOut"});
+}
+
+function mouseLeaveElement(e) {
+    gsap.to(e.target, {scale: 1.4, duration: 0.1 ,cursor:'auto', ease: "power1.inOut"});
+}
+
+function addAndRemoveEventListener(add, remove, direction, n) {
+    remove.removeEventListener("click", clickableElement);
+    remove.removeEventListener("mouseenter", mouseEnterElement);
+    remove.removeEventListener("mouseleave", mouseLeaveElement);
+
+    updateParam(add, remove, direction, n);
+
+    add.addEventListener('click', clickableElement );
+    add.addEventListener("mouseenter", mouseEnterElement);
+    add.addEventListener("mouseleave", mouseLeaveElement);
+}
+
+function updateParam(add,remove, direction, n) {
+    console.log(remove);
+    let currentIdx = remove.myParam.currentIdx;
+    if (!direction) add.myParam = {
+        currentIdx: (currentIdx - 1) === -1 ? n-1 : currentIdx - 1
+    }
+    else {
+        add.myParam = {
+            currentIdx: (currentIdx + 1) % n
+        }
+    }
+
 }
 function carousselSwiper(projects, timeline, direction, idx, n, data){
     var clickableProject = null;
@@ -108,13 +153,7 @@ function carousselSwiper(projects, timeline, direction, idx, n, data){
         var nextIdx = 0;
         if(!direction) nextIdx = idx.leftIdx;
         else nextIdx = idx.rightIdx;
-        projects[2].removeEventListener("click", clickableElement);
-        clickableProject.addEventListener('click', clickableElement ) 
-        const hover = gsap.to(clickableProject, {scale: 1.19, duration: 0.2 ,cursor:'pointer', paused:true, ease: "power1.inOut"});
-        projects[2].removeEventListener("mouseenter", hoverableElement(clickableProject,true));
-        projects[2].removeEventListener("mouseleave", hoverableElement(clickableProject,false));
-        clickableProject.addEventListener("mouseenter", hoverableElement(clickableProject,true));
-        clickableProject.addEventListener("mouseleave", hoverableElement(clickableProject,false));
+        addAndRemoveEventListener(clickableProject,projects[2], direction, n);
         removeLastadd(aera,projects,data[nextIdx],direction);
         
     });
@@ -128,6 +167,9 @@ function caroussel(data) {
     const leftArrow = document.querySelector('.left');
     const timeline = gsap.timeline( {defaults: {duration:.27 }})
     document.querySelectorAll('.project--wrapper')[2].addEventListener('click', clickableElement)
+    document.querySelectorAll('.project--wrapper')[2].myParam = {
+        currentIdx:2
+    };
 
     leftArrow.addEventListener('click', (e) => {
         if (timeline.isActive()) return;

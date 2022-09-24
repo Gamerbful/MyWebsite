@@ -5,14 +5,22 @@
     box-sizing: border-box;
 }
 
+body,html {
+
+  margin: 0;
+  padding: 0;
+
+  
+}
 body {
+  overflow-x: hidden;
+  background-color: #FFA74F;
   position: relative;
   width:100vw;
   height:100vh;
-  overflow-x: hidden;
-  background-color: #38334B;
-  
 }
+
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -20,4 +28,5 @@ code {
 
 #root {
   width:100%;
+  height:100%;
 }

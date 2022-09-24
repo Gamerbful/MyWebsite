@@ -1,9 +1,8 @@
 
-
+import {BrowserRouter as Router, Link} from 'react-router-dom';
 
 function Caroussel(props) {
     function loadProjects(){
-        console.log(props.projects);
         if (!props.projects) return;
         return props.projects.slice(0,5).map( (project, idx) => {
             var c = "project--wrapper";
@@ -53,7 +52,7 @@ function Caroussel(props) {
                 };
                 rotation = 40;
             }
-            return (<div data-translate="0" data-rotate={`${rotation}`} style={style} className={c}>
+            return (<div key={idx} data-translate="0" data-rotate={`${rotation}`} style={style} className={c}>
             <img className="lazy" data-src={project.img}></img>
             <h5>{project.descri}</h5>
             </div>
@@ -64,8 +63,8 @@ function Caroussel(props) {
     return(
         <div className="caroussel">
             {loadProjects()}
-            <img className='left arrow' src='arrow-left.png'></img>
-            <img className='right arrow' src='arrow-right.png'></img>
+            <img className='left arrow' src='/arrow-left.png'></img>
+            <img className='right arrow' src='/arrow-right.png'></img>
         </div>
     )
 
