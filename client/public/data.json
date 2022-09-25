@@ -1,10 +1,10 @@
 {
     "descri": "Je suis un passionné des domaines de l'informatique, j'aime surtout son côté créatif et la possibilité de gérer des données. J'adore découvrir de nouveaux langages / de nouvelles façons de travailler. Sociable et dynamique, j'ai hâte de trouver une entreprise dans le web pour lui apporter mon soutien",
     "ratings": [4,3,4,4,5],
-    "projets": [{ "descri": "Mon site Web portfolio, ayant pour but de faire vitrine pour mes projets et mes compétences. C'est également un moyen pour me contacter. S'améliorera avec l'expérience!", "img": "/projets/portfolio.png", "logo":["/logo/react.svg","/logo/js.svg","/logo/html.svg","/logo/css.svg"], "titre": "Site portfolio"},
-    { "descri": "lorem ipsum", "img": "/projets/test3.png","logo":["/logo/react.svg","/logo/js.svg","/logo/html.svg","/logo/css.svg"], "titre": "Site portfolio"},
-    { "descri": "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsumlorem ipsum lorem ipsum lorem", "img": "/projets/test2.jpg","logo":["/logo/react.svg","/logo/js.svg","/logo/htmlcss.svg"], "titre": "Site portfolio"},
-    { "descri": "lorem ipsum", "img": "/projets/test.jpg","logo":["/logo/react.svg","/logo/js.svg","/logo/htmlcss.svg"], "titre": "Site portfolio"},
-    { "descri": "lorem ipsum", "img": "/projets/yeah.png","logo":["/logo/react.svg","/logo/js.svg","/logo/htmlcss.svg"], "titre": "Site portfolio"},
-    { "descri": "lorem ipsum", "img": "/projets/yeah.png","logo":["/logo/react.svg","/logo/js.svg","/logo/htmlcss.svg"], "titre": "Site portfolio"}]
+    "projets": [{ "descri": "Mon site Web portfolio, ayant pour but de faire vitrine pour mes projets et mes compétences. C'est également un moyen pour me contacter. S'améliorera avec l'expérience!", "img": "/projets/portfolio.png", "logo":["/logo/react.svg","/logo/js.svg","/logo/html.svg","/logo/css.svg"], "titre": "Site portfolio", "link": "https://github.com/Gamerbful/MyWebsite/tree/master/client"},
+    { "descri": "lorem ipsum", "img": "/projets/test3.png","logo":["/logo/react.svg","/logo/js.svg","/logo/html.svg","/logo/css.svg"], "titre": "Site portfolio", "link": "https://github.com/Gamerbful"},
+    { "descri": "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsumlorem ipsum lorem ipsum lorem", "img": "/projets/test2.jpg","logo":["/logo/react.svg","/logo/js.svg","/logo/htmlcss.svg"], "titre": "Site portfolio", "link": "https://github.com/Gamerbful"},
+    { "descri": "lorem ipsum", "img": "/projets/test.jpg","logo":["/logo/react.svg","/logo/js.svg","/logo/htmlcss.svg"], "titre": "Site portfolio", "link": "https://github.com/Gamerbful"},
+    { "descri": "lorem ipsum", "img": "/projets/yeah.png","logo":["/logo/react.svg","/logo/js.svg","/logo/htmlcss.svg"], "titre": "Site portfolio", "link": "https://github.com/Gamerbful"},
+    { "descri": "lorem ipsum", "img": "/projets/yeah.png","logo":["/logo/react.svg","/logo/js.svg","/logo/htmlcss.svg"], "titre": "Site portfolio", "link": "https://github.com/Gamerbful"}]
 }

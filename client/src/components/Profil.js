@@ -38,12 +38,12 @@ function Profil(props) {
             </div>
             <h1 className="profil--title"> <img alt='logo' src='/titlePoint.png'></img>Languages Used</h1>
             <div className="logo--wrapper">
-                <img alt='logo' src="/logo/js.png"></img>
-                <img alt='logo' src="/logo/htmlcss.png"></img>
-                <img alt='logo' src="/logo/nodejs.png"></img>
-                <img alt='logo' src="/logo/php.png"></img>
-                <img alt='logo' src="/logo/python.png"></img>
-                <img alt='logo' src="/logo/react.png"></img>
+                <img alt='logo' src="/logo/js.svg"></img>
+                <img alt='logo' src="/logo/html.svg"></img>
+                <img alt='logo' src="/logo/nodejs.svg"></img>
+                <img alt='logo' src="/logo/css.svg"></img>
+                <img alt='logo' src="/logo/python.svg"></img>
+                <img alt='logo' src="/logo/react.svg"></img>
             </div>
             </div>
             </div>

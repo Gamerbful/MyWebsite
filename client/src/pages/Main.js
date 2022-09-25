@@ -12,7 +12,6 @@ import attributeRedirect from '../utils/redirect';
 
 function Main(props) {
 
-    
 
     useEffect( ()=> {
         if ( props.data.length > 0 ){
