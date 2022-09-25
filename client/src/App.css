@@ -89,7 +89,7 @@ svg {
   animation: wave2 10s linear infinite   reverse ;
 }
 
-h1 {
+section h1 {
   font-family: 'bebasneue',Helvetica;
   font-style: normal;
   font-weight: 500;
@@ -99,7 +99,7 @@ h1 {
   font-size: 2.5vw;
 }
 
-h1::first-letter {
+section h1::first-letter {
   font-size: 1.4em;
 }
 .ctn1 {
@@ -476,9 +476,8 @@ h1::first-letter {
 }
 
 .project--page {
-  height:98%;
+  height:95%;
   width:100%;
-  margin:auto;
   background-color: #FFA74F;
   display: grid;
   grid-gap:30px;
@@ -487,10 +486,11 @@ h1::first-letter {
   grid-template-areas: 
   "a a"
   "b c";
-  padding: 0px 20px 20px 20px;
+  padding: 0px 0px 0px 0px;
 }
 
 .pp--img {
+  position: relative;
   grid-area: a;
   height:100%;
 }
@@ -499,26 +499,98 @@ h1::first-letter {
   width: 100%;
   max-height: 100%;
   object-fit: cover;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+}
+
+.pp--img h3 {
+  position:absolute;
+  color: #FFA74F;
+  transform: translate(-50%,-50%);
+  font-size: 5vw;
+  left:50%;
+  top:50%;
+  background-color: rgba(0, 0, 0, 0.815);
+  border:3px solid white;
+  border-radius: 7px;
+  padding: 20px;
+  font-family: 'babasneue';
+  z-index: 2;
 }
 
 .pp--descri {
+  margin-left:20px;
   grid-area: b;
-  text-align: center;
   background-color: rgb(233, 142, 57);
-  color:rgb(243, 242, 242);
+  color:rgb(14, 13, 13);
   font-family: 'Helvetica-Neue';
   font-size: 2vw;
   border-radius: 7px;
+  display: flex;
+  flex-direction: column;
+  border:2px solid rgb(219, 64, 3,0.9);
+  box-shadow: 5px 5px 2px rgba(219, 64, 3, 0.603) ;
+}
 
+
+.pp--descri p {
+  text-align: center;
+  font-size: 2vw;
+}
+
+.pp--title {
+  letter-spacing: 0.04em;
+  margin-left:5%;
+  font-size: 3vw;
 }
 .pp--logo {
+  border:2px solid rgb(219, 64, 3,0.9);
+  box-shadow: 5px 5px 2px rgba(219, 64, 3, 0.603) ;
+  margin-right:20px;
   grid-area: c;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
   background-color: rgb(233, 147, 67);
   border-radius: 7px;
 
+}
+
+.pp--logo--wrapper {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin:auto;
+  height:80%;
+  width:80%;
+}
+
+.pp--logo img {
+  max-width:fit-content;
+  height:40%;
+}
+.pp--house {
+  position:fixed;
+  bottom:15px;
+  right:15px;
+  background-color: white;
+  border-radius: 50%;
+  display:flex;
+  height:50px;
+  width:100px;
+  box-shadow: 4px 4px 3px rgba(0, 0, 0, 0.205);
+  transform-style: preserve-3d;
+  transition: transform .5s;
+}
+
+.pp--house:hover {
+  transform: rotateX(10deg) rotateZ(10deg) scale(110%);
+  cursor: pointer;
+}
+
+.pp--house img {
+  max-height: 70%;
+  max-width: 70%;
+  margin:auto;
 }
 
 

@@ -17,13 +17,16 @@ function Projets(props) {
     return(
         <div className="project--page">
             <div className="pp--img">
-                {props.data ? <img className='lazy' data-src={props.data[parseInt(id)].img}></img> : null}
+                {props.data ? <><h3>{props.data[parseInt(id)].titre}</h3><img className='lazy' data-src={props.data[parseInt(id)].img}></img></> : null}
             </div>
             <div className="pp--descri">
-                {props.data ? <p> {props.data[parseInt(id)].descri} </p> : null}
+                {props.data ? <><h1 className='pp--title'>Description</h1><p> {props.data[parseInt(id)].descri} </p></> : null}
             </div>
             <div className="pp--logo">
-                {props.data ? showLogo(props.data[parseInt(id)].logo) : null}
+                {props.data ? <><h1 className='pp--title'>Technos Utilisées</h1><div className='pp--logo--wrapper'>{showLogo(props.data[parseInt(id)].logo)}</div></> : null}
+            </div>
+            <div className='pp--house'>
+                <img alt='house' src='/logo/house.svg'></img>
             </div>
         </div>
     )

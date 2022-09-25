@@ -17,7 +17,7 @@ function removeLastadd(aera,projects,project,direction) {
     var div = document.createElement('div');
     var img = document.createElement('img');
     var h5 = document.createElement('h5');
-    h5.innerText = project.descri;
+    h5.innerText = project.titre;
     img.src=project.img;
     div.className = 'project--wrapper';
     div.appendChild(img);

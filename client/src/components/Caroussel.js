@@ -1,6 +1,4 @@
 
-import {BrowserRouter as Router, Link} from 'react-router-dom';
-
 function Caroussel(props) {
     function loadProjects(){
         if (!props.projects) return;
@@ -54,7 +52,7 @@ function Caroussel(props) {
             }
             return (<div key={idx} data-translate="0" data-rotate={`${rotation}`} style={style} className={c}>
             <img className="lazy" data-src={project.img}></img>
-            <h5>{project.descri}</h5>
+            <h5>{project.titre}</h5>
             </div>
             )
         })
