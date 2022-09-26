@@ -30,11 +30,11 @@ function Profil(props) {
                 </div>
             <h1 className="profil--title"> <img alt='logo' src='/titlePoint.png'></img>Skills</h1>
             <div className="skills--wrapper">
-                <span><h3 className="skills--title">Agility </h3><div className="rating"> {ratingsImg(0)} </div></span>
-                <span><h3 className="skills--title">Adaptability </h3><div className="rating"> {ratingsImg(1)} </div></span>
-                <span><h3 className="skills--title">Logic </h3><div className="rating"> {ratingsImg(2)} </div></span>
-                <span><h3 className="skills--title">Listening </h3><div className="rating"> {ratingsImg(3)} </div></span>
-                <span><h3 className="skills--title">Communication </h3><div className="rating"> {ratingsImg(4)} </div></span>
+                <span><h3 className="skills--title">JS </h3><div className="rating"> {ratingsImg(0)} </div></span>
+                <span><h3 className="skills--title">nodeJS </h3><div className="rating"> {ratingsImg(1)} </div></span>
+                <span><h3 className="skills--title">Machine Learning </h3><div className="rating"> {ratingsImg(2)} </div></span>
+                <span><h3 className="skills--title">code & algo </h3><div className="rating"> {ratingsImg(3)} </div></span>
+                <span><h3 className="skills--title">Animation / 3d </h3><div className="rating"> {ratingsImg(4)} </div></span>
             </div>
             <h1 className="profil--title"> <img alt='logo' src='/titlePoint.png'></img>Languages Used</h1>
             <div className="logo--wrapper">
