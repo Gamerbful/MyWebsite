@@ -2,7 +2,7 @@
 
 function attributeRedirect() {
     const logos = document.querySelectorAll('.networks--logo img');
-    const [instagram, linkedin, github, twitch ] = logos;
+    const [linkedin, github, instagram, twitch ] = logos;
     instagram.addEventListener('click', (e) => {
         window.open('https://www.instagram.com/bryan56_c/?hl=en', '_blank');
     })
