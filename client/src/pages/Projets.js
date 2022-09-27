@@ -7,12 +7,21 @@ import projectPageAnimation from '../utils/projectPageAnimation';
 function Projets(props) {
 
     const { id } = useParams();
+    console.log(id);
 
     function attributeRedirect(projet) {
         const logos = document.querySelectorAll('.pp--fixed');
-        const [home, github] = logos;
+        let home, github, heroku = null;
+        if ( projet.link[0] != null ){
+            heroku = logos[2];
+            heroku.addEventListener('click', (e) => {
+                window.open(projet.link[0], '_blank');
+            })
+        }
+        home = logos[0];
+        github = logos[1];  
         github.addEventListener('click', (e) => {
-            window.open(projet.link, '_blank');
+            window.open(projet.link[1], '_blank');
         })
         home.addEventListener('click', (e) => {
             window.location.href = '/';
@@ -27,12 +36,21 @@ function Projets(props) {
       },[props.data])
 
     function showLogo(logos) {
-        console.log(logos);
         return logos.map( (logo,idx) => {
             return (
                 <img key={idx} src={logo}></img>
             )
         })
+    }
+
+    function herokuLink(projet) {
+        if (projet.link[0] != null) {
+            return (
+                <div className='pp--heroku pp--fixed'>
+                    <img alt='house' src='/logo/heroku.svg'></img>
+                </div>
+            )
+        }
     }
     
     return(
@@ -52,6 +70,13 @@ function Projets(props) {
             <div className='pp--github pp--fixed'>
                 <img alt='house' src='/logo/github.svg'></img>
             </div>
+            
+            {props.data  ? herokuLink(props.data[parseInt(id)])
+
+                                : 
+                                null    }
+
+
         </div>
     )
 }

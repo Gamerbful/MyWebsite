@@ -24,6 +24,7 @@ function Profil(props) {
         <div className="profil--wrapper">
             <div className="profil--card">
             <img className="card front lazy" alt='developpeur' data-src='/bryan.jpg'></img>
+            <h5>?!</h5>
             <div className="card back">
                 <div className="title">
                     <h1>Profil Card</h1>  
@@ -36,7 +37,7 @@ function Profil(props) {
                 <span><h3 className="skills--title">code & algo </h3><div className="rating"> {ratingsImg(3)} </div></span>
                 <span><h3 className="skills--title">Animation / 3d </h3><div className="rating"> {ratingsImg(4)} </div></span>
             </div>
-            <h1 className="profil--title"> <img alt='logo' src='/titlePoint.png'></img>Languages Used</h1>
+            <h1 className="profil--title"> <img alt='logo' src='/titlePoint.png'></img>Langages Utilisés</h1>
             <div className="logo--wrapper">
                 <img alt='logo' src="/logo/js.svg"></img>
                 <img alt='logo' src="/logo/html.svg"></img>

@@ -12,7 +12,7 @@
 
 header {
   background-color: #F1E680;
-  height:50px;
+  height:7vh;
   width:100%;
   display:grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -125,6 +125,7 @@ section h1::first-letter {
 
 .card {
   height:100%;
+  width:100%;
   border-radius: 7px;
   box-shadow: rgba(0, 0, 0, 0.15) 6px 6px 2.6px;
   backface-visibility: hidden;
@@ -132,13 +133,13 @@ section h1::first-letter {
 }
 
 .front {
-  width:auto;
+  object-fit: cover;
 }
 
 .back {
   background-color:#FCFFED;
   transform: rotateY(180deg);
-  width:320px;
+  width:100%;
   height:100%;
   display: flex;
   flex-direction: column;
@@ -240,9 +241,31 @@ section h1::first-letter {
   border-radius: 7px;
   position:relative;
   transform-style: preserve-3d;
-  height:90%;
+  height:92%;
+  width:20%;
   perspective: 1800px;
   cursor: pointer;
+}
+
+.profil--card h5 {
+  position: absolute;
+  top:0%;
+  left:50%;
+  transform: translateY(-100%) translateX(-50%);
+  font-size: 1.4vw;
+  text-align: center;
+  color:black;
+  animation: blink .8s infinite alternate;
+  transform-origin: center;
+  z-index: 3;
+}
+
+@keyframes blink {
+  0% {color:black;
+      opacity: 0.4;}
+  100% {color:#FFF845;
+        transform:translateY(-100%) translateX(-50%) scale(150%);
+        opacity: 0.8; }
 }
 
 
@@ -252,8 +275,9 @@ section h1::first-letter {
   justify-content: space-around;
   align-items: center;
   height: 80%;
-  width:105%;
+  width:100%;
 }
+
 
 .profil--wrapper p {
   width:50%;
@@ -303,12 +327,15 @@ section h1::first-letter {
 }
 
 
+
+
+
 .project--wrapper img {
   height:80%;
   border-radius: 7px;
   object-position:center;
   object-fit: cover;
-  
+  border: 2px solid rgb(0, 0, 0);
   
 }
 .lazy {
@@ -523,6 +550,7 @@ section h1::first-letter {
   padding: 20px;
   font-family: 'babasneue';
   z-index: 2;
+  text-align: center;
 }
 
 .pp--descri {
@@ -610,11 +638,13 @@ section h1::first-letter {
 
 .pp--github {
   bottom:15px;
-  right:150px;
-  background-color: white;
+  right:125px;
 }
 
-
+.pp--heroku {
+  bottom:15px;
+  right:235px;
+}
 .pp--fixed img {
   max-height: 70%;
   max-width: 70%;
@@ -627,11 +657,10 @@ BREAKPOINTS for responsivity
 */
 
 @media only screen and (max-width: 1400px) {
-  /* .profil--wrapper p {
-    font-size: 15px;
-    line-height:  20px;
-    width: 40%;
-  } */
+  .profil--card  {
+    height:90%;
+    width: 23%;
+  }
   .contact--wrapper {
     height:70%;
   }
@@ -640,9 +669,6 @@ BREAKPOINTS for responsivity
   }
   section {
     height:450px;
-  }
-  .back {
-    width: 230px;
   }
   .logo--wrapper img {
     width: 50%;
@@ -659,13 +685,11 @@ BREAKPOINTS for responsivity
     width: 50%;
   }
   .profil--card {
-    height:80%;
+    height:90%;
+    width:24%;
   }
   .title h1 {
     font-size: 10px;
-  }
-  .back {
-    width: 130px;
   }
   section {
     height:300px;
@@ -715,9 +739,7 @@ BREAKPOINTS for responsivity
   }
   .profil--card {
     height:50%;
-  }
-  .back {
-    width: 90px;
+    width:30%;
   }
   section {
     height:300px;

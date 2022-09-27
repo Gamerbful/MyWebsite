@@ -162,7 +162,7 @@ function carousselSwiper(projects, timeline, direction, idx, n, data){
 
 function caroussel(data) {
     const n = data.length;
-    var idx = {leftIdx: n - 1, rightIdx: 5}
+    var idx = {leftIdx: n - 1, rightIdx: (n==5) ? 0 : 5}
     const rightArrow = document.querySelector('.right');
     const leftArrow = document.querySelector('.left');
     const timeline = gsap.timeline( {defaults: {duration:.27 }})
