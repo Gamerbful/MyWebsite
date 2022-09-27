@@ -23,8 +23,8 @@ function Profil(props) {
     return (
         <div className="profil--wrapper">
             <div className="profil--card">
-            <img className="card front lazy" alt='developpeur' data-src='/bryan.jpg'></img>
-            <h5>?!</h5>
+            <img className="card front lazy" alt='developpeur' data-src='/moi.png'></img>
+            <img className="fliparrow" src='/logo/flipArrow.png'/>
             <div className="card back">
                 <div className="title">
                     <h1>Profil Card</h1>  

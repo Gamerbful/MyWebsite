@@ -86,7 +86,7 @@ function clickableElement(e) {
     timeline
     .to([ctn1.childNodes,ctn3.childNodes, header], {opacity:0},"<")
     .to([caroussel, ctn2.firstChild, ctn2.lastChild], {opacity:0})
-    .to([ctn1,ctn3], {backgroundColor:"#FFA74F"},"<")
+    .to([ctn1,ctn3], {backgroundColor:"#e7973c"},"<")
     
     timeline.eventCallback('onComplete',() => {
         window.location.href = `/projets/${currentIdx}`;
@@ -94,11 +94,11 @@ function clickableElement(e) {
 }
 
 function mouseEnterElement(e) {
-    gsap.to(e.target, {scale: 1.8, duration: 0.1 ,cursor:'pointer', ease: "power1.inOut"});
+    gsap.to(e.target, {scale: 1.6, duration: 0.15 ,cursor:'pointer', ease: "power1.inOut"});
 }
 
 function mouseLeaveElement(e) {
-    gsap.to(e.target, {scale: 1.4, duration: 0.1 ,cursor:'auto', ease: "power1.inOut"});
+    gsap.to(e.target, {scale: 1.4, duration: 0.15 ,cursor:'auto', ease: "power1.inOut"});
 }
 
 function addAndRemoveEventListener(add, remove, direction, n) {
@@ -147,13 +147,13 @@ function carousselSwiper(projects, timeline, direction, idx, n, data){
         clickableProject = projects[3];
     }
 
+    addAndRemoveEventListener(clickableProject,projects[2], direction, n);
     timeline.eventCallback('onComplete',() => {
         var aera = document.querySelector('.caroussel');
         var projects = document.querySelectorAll('.project--wrapper');
         var nextIdx = 0;
         if(!direction) nextIdx = idx.leftIdx;
         else nextIdx = idx.rightIdx;
-        addAndRemoveEventListener(clickableProject,projects[2], direction, n);
         removeLastadd(aera,projects,data[nextIdx],direction);
         
     });
@@ -166,7 +166,9 @@ function caroussel(data) {
     const rightArrow = document.querySelector('.right');
     const leftArrow = document.querySelector('.left');
     const timeline = gsap.timeline( {defaults: {duration:.27 }})
-    document.querySelectorAll('.project--wrapper')[2].addEventListener('click', clickableElement)
+    document.querySelectorAll('.project--wrapper')[2].addEventListener('click', clickableElement);
+    document.querySelectorAll('.project--wrapper')[2].addEventListener('mouseenter', mouseEnterElement);
+    document.querySelectorAll('.project--wrapper')[2].addEventListener('mouseleave', mouseLeaveElement);
     document.querySelectorAll('.project--wrapper')[2].myParam = {
         currentIdx:2
     };

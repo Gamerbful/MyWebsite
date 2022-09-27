@@ -11,7 +11,7 @@
 
 
 header {
-  background-color: #F1E680;
+  background-color: #f1e468;
   height:7vh;
   width:100%;
   display:grid;
@@ -27,17 +27,17 @@ header {
 
 .one{
   grid-area: one;
-  color: rgba(18, 6, 91, 0.76);
+  color: #38334B;
 }
 
 .two{
   grid-area: two;
-  color:#7BAE37;
+  color:#13964e;
 }
 
 .three {
   grid-area: three;
-  color: #FFA74F;
+  color: #e7973c;
 }
 
 .header--button {
@@ -103,11 +103,11 @@ section h1::first-letter {
   font-size: 1.4em;
 }
 .ctn1 {
-  background-color:#7BAE37 ;
+  background:#13964e ;
 }
 
 .ctn2 {
-  background-color:#FFA74F ;
+  background-color:#e7973c ;
 }
 
 .ctn3 {
@@ -115,8 +115,13 @@ section h1::first-letter {
 }
 
 #wave path {
-  fill: #7BAE37 ;
+  fill: #13964e;
 }
+
+#wave2 path {
+  fill: #e7973c  ;
+}
+
 
 
 /*
@@ -127,7 +132,7 @@ section h1::first-letter {
   height:100%;
   width:100%;
   border-radius: 7px;
-  box-shadow: rgba(0, 0, 0, 0.15) 6px 6px 2.6px;
+  box-shadow: rgba(0, 0, 0, 0.308) 8px 6px 2.6px;
   backface-visibility: hidden;
   position:absolute;
 }
@@ -247,23 +252,23 @@ section h1::first-letter {
   cursor: pointer;
 }
 
-.profil--card h5 {
+.fliparrow {
   position: absolute;
   top:0%;
   left:50%;
   transform: translateY(-100%) translateX(-50%);
   font-size: 1.4vw;
-  text-align: center;
   color:black;
   animation: blink .8s infinite alternate;
   transform-origin: center;
   z-index: 3;
+  height:10%;
 }
 
 @keyframes blink {
-  0% {color:black;
+  0% {
       opacity: 0.4;}
-  100% {color:#FFF845;
+  100% {
         transform:translateY(-100%) translateX(-50%) scale(150%);
         opacity: 0.8; }
 }
@@ -289,7 +294,12 @@ section h1::first-letter {
   text-align: center;
   line-height:  40px;
   opacity: 0;
-  color:rgb(4, 24, 5);
+  color:rgb(0, 0, 0);
+  background-color: rgba(255, 255, 255, 0.897);
+  box-shadow: rgba(0, 0, 0, 0.308) 6px 6px 2.6px;
+  border: black 3px solid;
+  border-radius: 7px;
+  padding:25px;
 }
 
 /*
@@ -511,7 +521,7 @@ section h1::first-letter {
 .project--page {
   height:95%;
   width:100%;
-  background-color: #FFA74F;
+  background-color: #e7973c;
   display: grid;
   grid-gap:30px;
   grid-auto-rows: 40%;
@@ -659,7 +669,7 @@ BREAKPOINTS for responsivity
 @media only screen and (max-width: 1400px) {
   .profil--card  {
     height:90%;
-    width: 23%;
+    width: 19%;
   }
   .contact--wrapper {
     height:70%;
@@ -685,8 +695,8 @@ BREAKPOINTS for responsivity
     width: 50%;
   }
   .profil--card {
-    height:90%;
-    width:24%;
+    height:95%;
+    width:20%;
   }
   .title h1 {
     font-size: 10px;
@@ -738,7 +748,7 @@ BREAKPOINTS for responsivity
     width: 40%;
   }
   .profil--card {
-    height:50%;
+    height:80%;
     width:30%;
   }
   section {
