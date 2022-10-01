@@ -4,6 +4,8 @@ import React from "react";
 function Profil(props) {
     let keyA = 0;
     let keyB = 1000;
+
+    // load rating and render moon svg to fit ratings
     function ratingsImg(idx){
         if(!props.ratings) return;
         const filledStarsNumber = props.ratings[idx];

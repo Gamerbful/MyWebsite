@@ -1,5 +1,6 @@
 import gsap from "gsap";
 
+//appear animation for project page
 function appear() {
     const hero = document.querySelector('.pp--img');
     const heroImg = document.querySelector('.pp--img img');

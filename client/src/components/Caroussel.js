@@ -1,5 +1,7 @@
 
 function Caroussel(props) {
+
+    // init values of 5 first element of carousel. Position Absolute!
     function loadProjects(){
         if (!props.projects) return;
         return props.projects.slice(0,5).map( (project, idx) => {

@@ -12,7 +12,7 @@
 
 header {
   background-color: #f1e468;
-  height:7vh;
+  height:max(4.5vh,3vw);
   width:100%;
   display:grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -611,7 +611,6 @@ section h1::first-letter {
 }
 
 .pp--logo img {
-  max-width:fit-content;
   height:40%;
 }
 .pp--house {
@@ -689,6 +688,10 @@ BREAKPOINTS for responsivity
 }
 
 @media only screen and (max-width: 800px) {
+
+  .project--page {
+    grid-auto-rows: 20%;
+  }
   .profil--wrapper p {
     font-size: 2vw;
     line-height:  15px;
@@ -753,6 +756,10 @@ BREAKPOINTS for responsivity
   }
   section {
     height:300px;
+  }
+
+  .pp--logo img {
+    height:30%;
   }
 }
 

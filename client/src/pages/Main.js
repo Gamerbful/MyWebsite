@@ -9,9 +9,15 @@ import Contact from '../components/Contact';
 import initiateAnimation from '../utils/animation';
 import attributeRedirect from '../utils/redirect';
 
+
+// MAIN PAGE
 function Main(props) {
 
 
+    /*
+     Prepare all the animation of main page and redirect link on images.
+     Activated when data is loaded from json file!
+    */
     useEffect( ()=> {
         if ( props.data.length > 0 ){
           initiateAnimation(props.data[2]);

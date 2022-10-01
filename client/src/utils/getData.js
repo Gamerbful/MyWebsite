@@ -1,3 +1,5 @@
+
+// fetch local json file!
 async function getData(key) {
     let data = await fetch('/data.json', {
             headers: {
@@ -11,5 +13,6 @@ async function getData(key) {
     if (!data[key]) return;
     return data[key];
 }
+
 
 export default getData;

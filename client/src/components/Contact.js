@@ -7,6 +7,7 @@ function Contact() {
     const form = useRef();
     const [count, setCount] = useState( ()=> 0);
     
+    // send an email to website owner, use EmailJS API
     const sendEmail = (e) => {
         e.preventDefault();
         setCount( (count) => count+1);

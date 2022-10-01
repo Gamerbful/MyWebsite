@@ -1,5 +1,5 @@
 
-
+// redirect attr for Contact aera
 function attributeRedirect() {
     const logos = document.querySelectorAll('.networks--logo img');
     const [linkedin, github, instagram, twitch ] = logos;

@@ -1,5 +1,5 @@
 
-
+// apply lazy loading animation to all .lazy imgs. 
 function lazyLoading() {
     const lazyImg = document.querySelectorAll('.lazy');
     const observer = new IntersectionObserver(entries => {

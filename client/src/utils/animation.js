@@ -44,6 +44,7 @@ function removeLastadd(aera,projects,project,direction) {
     return document.querySelectorAll('.project--wrapper');
 }
 
+// set new attr for translation and rotation based on direction of carousel action
 function setProjectsAttribute(projects,direction){
     if (direction) {
         projects.forEach(
@@ -63,6 +64,7 @@ function setProjectsAttribute(projects,direction){
 }
 }
 
+// compute new idx of nextLeft elt and nextRight elt to appear
 function refreshIdx(direction, idx,n) {
         if (!direction) {
             const newLeftIdx = (idx.leftIdx - 1);
@@ -74,6 +76,7 @@ function refreshIdx(direction, idx,n) {
 
 }
 
+// add fadeIn animation, and click listener to active div in carousel
 function clickableElement(e) {
     const currentIdx = e.currentTarget.myParam.currentIdx;
     const header = document.querySelector('header');
@@ -93,6 +96,8 @@ function clickableElement(e) {
     });
 }
 
+// adding hover for clickable elt 
+
 function mouseEnterElement(e) {
     gsap.to(e.target, {scale: 1.6, duration: 0.15 ,cursor:'pointer', ease: "power1.inOut"});
 }
@@ -101,6 +106,7 @@ function mouseLeaveElement(e) {
     gsap.to(e.target, {scale: 1.4, duration: 0.15 ,cursor:'auto', ease: "power1.inOut"});
 }
 
+// remove listener and add for the next active div
 function addAndRemoveEventListener(add, remove, direction, n) {
     remove.removeEventListener("click", clickableElement);
     remove.removeEventListener("mouseenter", mouseEnterElement);
@@ -113,6 +119,7 @@ function addAndRemoveEventListener(add, remove, direction, n) {
     add.addEventListener("mouseleave", mouseLeaveElement);
 }
 
+// param updated to know wich id is the current project ( used for project page)
 function updateParam(add,remove, direction, n) {
     console.log(remove);
     let currentIdx = remove.myParam.currentIdx;
@@ -126,6 +133,8 @@ function updateParam(add,remove, direction, n) {
     }
 
 }
+
+// Swipe animation of carousel 
 function carousselSwiper(projects, timeline, direction, idx, n, data){
     var clickableProject = null;
     if ( !direction ) {
@@ -160,12 +169,13 @@ function carousselSwiper(projects, timeline, direction, idx, n, data){
     
 }
 
+// addEventListener on buttons for the carousel 
 function caroussel(data) {
     const n = data.length;
     var idx = {leftIdx: n - 1, rightIdx: (n==5) ? 0 : 5}
     const rightArrow = document.querySelector('.right');
     const leftArrow = document.querySelector('.left');
-    const timeline = gsap.timeline( {defaults: {duration:.27 }})
+    const timeline = gsap.timeline( {defaults: {duration:.27 }}) // animation init for active elt
     document.querySelectorAll('.project--wrapper')[2].addEventListener('click', clickableElement);
     document.querySelectorAll('.project--wrapper')[2].addEventListener('mouseenter', mouseEnterElement);
     document.querySelectorAll('.project--wrapper')[2].addEventListener('mouseleave', mouseLeaveElement);
@@ -193,6 +203,8 @@ function caroussel(data) {
         
     })
 }
+
+// scroll to for header elt
 function scrollTo() {
     const contactButton = document.querySelector('.one');
     const contactSection = document.querySelector('.ctn3')
@@ -214,6 +226,8 @@ function scrollTo() {
         gsap.to(window, {duration: .9, delay:.1, scrollTo:profilSection})
     })
 }
+
+// flipping animation for profil card
 function flipProfil() {
     const timeline = gsap.timeline({ defaults: { duration: 1 }});
     const timeline2 = gsap.timeline({ defaults: { duration: 1 }});
@@ -239,6 +253,8 @@ function flipProfil() {
         }
     })
 }
+
+// moving animation for profil card on mouse movement 
 function parallaxProfil() {
     const element = document.querySelector('.profil--card'); // we will call our id from html with this parameter
     const root = document.querySelector('#root');
@@ -262,6 +278,7 @@ function parallaxProfil() {
       });
 }
 
+// appear animation for elements, with IntersectionObserver
 function appear() {
 
 
@@ -296,7 +313,7 @@ function appear() {
   
 }
 
-
+// appear Header on scroll animation
 function headerOnScroll() {
     var lastScrollTop = 0;
     // element should be replaced with the actual target element on which you have applied scroll, use window in case of no target element.
@@ -316,7 +333,7 @@ function headerOnScroll() {
 
 
 
-
+// initiate all animation.
 function initiateAnimation(data) {
     appear();
     parallaxProfil();

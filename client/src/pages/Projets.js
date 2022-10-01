@@ -4,11 +4,14 @@ import {useEffect} from 'react';
 
 import projectPageAnimation from '../utils/projectPageAnimation';
 
+// PROJECT PAGE
 function Projets(props) {
 
-    const { id } = useParams();
-    console.log(id);
+    const { id } = useParams(); // /projet/:id used for retrieving project data
 
+    /*
+        add redirect link to images of the project page.
+    */
     function attributeRedirect(projet) {
         const logos = document.querySelectorAll('.pp--fixed');
         let home, github, heroku = null;
@@ -35,6 +38,7 @@ function Projets(props) {
        
       },[props.data])
 
+      // return logos of languages used
     function showLogo(logos) {
         return logos.map( (logo,idx) => {
             return (
@@ -43,6 +47,7 @@ function Projets(props) {
         })
     }
 
+        // return heroku link for a hosted project
     function herokuLink(projet) {
         if (projet.link[0] != null) {
             return (
@@ -71,7 +76,7 @@ function Projets(props) {
                 <img alt='house' src='/logo/github.svg'></img>
             </div>
             
-            {props.data  ? herokuLink(props.data[parseInt(id)])
+            {props.data  ? herokuLink(props.data[parseInt(id)]) // check if we have a heroku link and return it if we have one...
 
                                 : 
                                 null    }
