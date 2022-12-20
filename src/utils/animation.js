@@ -83,13 +83,12 @@ function clickableElement(e) {
     const ctn1 = document.querySelector('.ctn1');
     const ctn3 = document.querySelector('.ctn3');
     const ctn2 = document.querySelector('.ctn2');
-    const page = document.querySelector('body');
     const caroussel = document.querySelector('.caroussel');
     const timeline = gsap.timeline({defaults: {duration:0.5}});
     timeline
     .to([ctn1.childNodes,ctn3.childNodes, header], {opacity:0},"<")
     .to([caroussel, ctn2.firstChild, ctn2.lastChild], {opacity:0})
-    .to([ctn1,ctn3], {backgroundColor:"#e7973c"},"<")
+    .to([ctn1,ctn3], {backgroundColor:"#1E5128"},"<")
     
     timeline.eventCallback('onComplete',() => {
         window.location.href = `/projets/${currentIdx}`;

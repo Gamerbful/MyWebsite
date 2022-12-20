@@ -11,7 +11,7 @@
 
 
 header {
-  background-color: #f1e468;
+  background-color: #D8E9A8;
   height:max(4.5vh,3vw);
   width:100%;
   display:grid;
@@ -27,17 +27,17 @@ header {
 
 .one{
   grid-area: one;
-  color: #38334B;
+  color: #4E9F3D;
 }
 
 .two{
   grid-area: two;
-  color:#13964e;
+  color:#191A19;
 }
 
 .three {
   grid-area: three;
-  color: #e7973c;
+  color: #1E5128;
 }
 
 .header--button {
@@ -103,23 +103,27 @@ section h1::first-letter {
   font-size: 1.4em;
 }
 .ctn1 {
-  background:#13964e ;
+  background:#191A19 ;
 }
 
 .ctn2 {
-  background-color:#e7973c ;
+  background-color:#1E5128 ;
 }
 
 .ctn3 {
-  background-color: #38334B;
+  background-color: #4E9F3D;
+}
+
+.ctn3 h1 {
+  color:black;
 }
 
 #wave path {
-  fill: #13964e;
+  fill: #191A19;
 }
 
 #wave2 path {
-  fill: #e7973c  ;
+  fill: #1E5128  ;
 }
 
 
@@ -333,7 +337,7 @@ section h1::first-letter {
   height:35%;
   margin:auto;
   font-size: 0.9vw;
-  color: black;
+  color: white;
 }
 
 
@@ -412,16 +416,17 @@ section h1::first-letter {
   width:100%;
 }
 .contact--form form button {
+  color:white;
   height: 10%;
   width:25%;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
   padding: 0px 15px;
-  background-color: #7EF0B3;
+  background-color: #1E5128;
   border-radius: 7px;
-  font-family: 'Helvetica Neue';
-  font-size: 1.5vw;
+  font-family: 'Helvetica';
+  font-size: 1.3vw;
   border:none;
   margin: 0px 0px 0px 10%;
   transition: transform 0.2;
@@ -453,6 +458,7 @@ section h1::first-letter {
 }
 ::placeholder {
   text-align: center;
+  color:rgba(0, 0, 0, 0.863);
 }
 #name {
   width:80%;
@@ -469,7 +475,6 @@ section h1::first-letter {
 }
 .contact--form h6{
   font-family: 'Helvetica';
-  color: white;
   margin-bottom: 20px;
   font-size: 1.5vw;
 }
@@ -487,6 +492,7 @@ section h1::first-letter {
 #ligne {
   max-height: 70%;
   margin: 10% 0% 0% 0%;
+  fill:black;
 }
 
 .networks--logo {
@@ -521,7 +527,7 @@ section h1::first-letter {
 .project--page {
   height:95%;
   width:100%;
-  background-color: #e7973c;
+  background-color: #1E5128;
   display: grid;
   grid-gap:30px;
   grid-auto-rows: 40%;
